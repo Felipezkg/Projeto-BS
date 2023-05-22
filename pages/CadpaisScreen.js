@@ -79,6 +79,15 @@ export function CadpaisScreen({ navigation }) {
                     </View>
                 </View>
                 <View style={styles.infoBox}>
+                    <Text style={styles.boxTitle}>E-Mail:</Text>
+                    <TextInput
+                        type='email'
+                        style={styles.textInput}
+                        placeholder='Exemplo@exemplo.com'
+                        placeholderTextColor="gray"
+                    />
+                </View>
+                <View style={styles.infoBox}>
                     <Text style={styles.boxTitle}>Senha:</Text>
                     <TextInput
                         style={styles.textInput}
@@ -161,7 +170,7 @@ const styles = StyleSheet.create({
     },
 
     btn_cad: {
-        marginTop: 50,
+        marginTop: 15,
         width: 185,
         height: 50,
         backgroundColor: '#61D6FF',

@@ -3,8 +3,11 @@ import { StyleSheet, Text, View, Pressable, Image, TextInput } from 'react-nativ
 
 import secImg from '../images/Secure-login.png';
 
-export function LoginScreen() {
+export function LoginScreen({ navigation }) {
 
+    const logar = () => {
+        navigation.navigate('Home');
+    };
 
     return (
         <View style={styles.container}>
@@ -33,7 +36,7 @@ export function LoginScreen() {
                     placeholderTextColor="gray"
                 />
             </View>
-            <Pressable style={styles.btn_logar}>
+            <Pressable style={styles.btn_logar} onPress={logar}>
                 <Text style={styles.text_btn}>LOGAR</Text>
             </Pressable>
             <Text style={styles.lostPw}>Esqueceu sua Senha?</Text>
@@ -66,6 +69,7 @@ const styles = StyleSheet.create({
 
     textInput: {
         marginTop: 5,
+        padding: 3,
         width: 200,
         height: 40,
         backgroundColor: '#EBEBEB',
@@ -78,7 +82,7 @@ const styles = StyleSheet.create({
         marginTop: 50,
         width: 185,
         height: 50,
-        backgroundColor: '#61D6FF',
+        backgroundColor: '#C300F3',
         borderRadius: 8,
         alignItems: 'center',
         justifyContent: 'center',

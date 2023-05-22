@@ -71,6 +71,15 @@ export function CadbabaScreen({ navigation }) {
                     </View>
                 </View>
                 <View style={styles.infoBox}>
+                    <Text style={styles.boxTitle}>E-Mail:</Text>
+                    <TextInput
+                        type='email'
+                        style={styles.textInput}
+                        placeholder='Exemplo@exemplo.com'
+                        placeholderTextColor="gray"
+                    />
+                </View>
+                <View style={styles.infoBox}>
                     <Text style={styles.boxTitle}>Senha:</Text>
                     <TextInput
                         style={styles.minitextInput}

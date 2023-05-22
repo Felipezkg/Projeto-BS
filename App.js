@@ -5,18 +5,20 @@ import { createStackNavigator } from '@react-navigation/stack';
 //---------------------------------------------------------------------------------------------------------------------------------------
 const Stack = createStackNavigator();
 //---------------------------------------------------------------------------------------------------------------------------------------
-import { HomeScreen } from './pages/HomeScreen';
+import { InicialScreen } from './pages/InicialScreen';
 import { CadpaisScreen } from './pages/CadpaisScreen';
 import { CadbabaScreen } from './pages/CadbabaScreen';
 import { LoginScreen } from './pages/LoginScreen';
+import { ProfileScreen } from './pages/ProfileScreen';
+import { HomeScreen } from './pages/HomeScreen';
 //---------------------------------------------------------------------------------------------------------------------------------------
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={'Home'}>
+      <Stack.Navigator initialRouteName={'Inicial'}>
         <Stack.Screen
-          name="Home"
-          component={HomeScreen}
+          name="Inicial"
+          component={InicialScreen}
           options={{
             headerShown: false,
             gestureEnabled: true,
@@ -46,6 +48,24 @@ export default function App() {
           component={LoginScreen}
           options={{
             headerShown: true,
+            gestureEnabled: true,
+          }}
+        />
+
+        <Stack.Screen
+          name='Perfil'
+          component={ProfileScreen}
+          options={{
+            headerShown: true,
+            gestureEnabled: true,
+          }}
+        />
+
+        <Stack.Screen
+          name='Home'
+          component={HomeScreen}
+          options={{
+            headerShown: false,
             gestureEnabled: true,
           }}
         />

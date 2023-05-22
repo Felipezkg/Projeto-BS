@@ -3,9 +3,7 @@ import { StyleSheet, Text, View, Pressable, Image } from 'react-native';
 
 import { useFonts, Comfortaa_400Regular, Comfortaa_300Light } from '@expo-google-fonts/comfortaa';
 
-import babyImg from '../images/Baby-cuate.png';
-
-export function HomeScreen({ navigation }) {
+export function HomeScreen() {
 
     const [fonteLoaded] = useFonts({
         Comfortaa_400Regular,
@@ -16,44 +14,37 @@ export function HomeScreen({ navigation }) {
         return null;
     }
 
-    const cadastrarPais = () => {
-        navigation.navigate('Cadastro de Pais');
-    };
-
-    const cadastrarBabas = () => {
-        navigation.navigate('Cadastro de Babás');
-    };
-
-    const Login = () => {
-        navigation.navigate('Login');
-    };
-
     return (
         <View style={styles.container}>
-            <StatusBar style='dark' />
-            <Image
-                style={styles.baby}
-                source={babyImg}
-            />
             <View style={styles.infoBox}>
-                <Text style={styles.boxTitle}>Sou Pai / Mãe</Text>
-                <Pressable style={styles.btn_cad} onPress={cadastrarPais}>
-                    <Text style={styles.textBtn}>CADASTRAR</Text>
+                <Text style={styles.boxTitle}>Pai / Mãe</Text>
+                <Pressable style={styles.btn_login}>
+                    <Text style={styles.textBtn}>Meu Perfil</Text>
+                </Pressable>
+                <Pressable style={styles.btn_login}>
+                    <Text style={styles.textBtn}>Mensagens</Text>
+                </Pressable>
+                <Pressable style={styles.btn_login}>
+                    <Text style={styles.textBtn}>Procurar Babás</Text>
+                </Pressable>
+            </View>
+            <Text style={styles.traco}>____________________________________________</Text>
+            <View style={styles.infoBox2}>
+                <Text style={styles.boxTitle}>Babás</Text>
+                <Pressable style={styles.btn_login}>
+                    <Text style={styles.textBtn}>Meu Perfil</Text>
+                </Pressable>
+                <Pressable style={styles.btn_login}>
+                    <Text style={styles.textBtn}>Mensagens</Text>
                 </Pressable>
             </View>
             <View style={styles.infoBox}>
-                <Text style={styles.boxTitle}>Sou Babá</Text>
-                <Pressable style={styles.btn_cad} onPress={cadastrarBabas}>
-                    <Text style={styles.textBtn}>CADASTRAR</Text>
+                <Text style={styles.supTitle}>Está com Problemas?</Text>
+                <Pressable style={styles.btn_sup}>
+                    <Text style={styles.textBtn}>SUPORTE</Text>
                 </Pressable>
             </View>
-            <View style={styles.infoBox}>
-                <Text style={styles.boxTitle}>Já possui Cadastro?</Text>
-                <Pressable style={styles.btn_login} onPress={Login}>
-                    <Text style={styles.textBtn}>LOGIN</Text>
-                </Pressable>
-            </View>
-
+            
         </View>
     )
 }
@@ -63,16 +54,21 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-
     },
 
-    baby: {
-        marginTop: 50,
-        width: 300,
-        height: 300,
+    traco: {
+        maxWidth: '70%',
+        fontWeight: 'bold',
     },
 
     infoBox: {
+        marginTop: 100,
+        margin: 15,
+        alignItems: 'center',
+    },
+
+    infoBox2: {
+        marginTop: 30,
         margin: 15,
         alignItems: 'center',
     },
@@ -87,24 +83,28 @@ const styles = StyleSheet.create({
         fontWeight: 800,
     },
 
-    btn_cad: {
-        marginTop: 10,
-        width: 185,
-        height: 50,
-        backgroundColor: '#D461FF',
-        borderRadius: 8,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-
     btn_login: {
         marginTop: 10,
         width: 185,
         height: 50,
-        backgroundColor: '#61D6FF',
-        borderRadius: 8,
+        backgroundColor: '#00CCE1',
+        borderRadius: 4,
         alignItems: 'center',
         justifyContent: 'center',
     },
 
+    btn_sup: {
+        marginTop: 10,
+        width: 185,
+        height: 50,
+        backgroundColor: '#F34D00',
+        borderRadius: 4,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    supTitle: {
+        fontSize: 15,
+        fontFamily: 'Comfortaa_400Regular',
+    },
 })
