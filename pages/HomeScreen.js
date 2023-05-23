@@ -2,23 +2,31 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Pressable, Image } from 'react-native';
 
 import { useFonts, Comfortaa_400Regular, Comfortaa_300Light } from '@expo-google-fonts/comfortaa';
+import { Rubik_300Light, Rubik_300Light_Italic } from '@expo-google-fonts/rubik'
 
-export function HomeScreen() {
+export function HomeScreen({ navigation }) {
 
     const [fonteLoaded] = useFonts({
         Comfortaa_400Regular,
         Comfortaa_300Light,
+        Rubik_300Light,
+        Rubik_300Light_Italic,
     });
 
     if (!fonteLoaded) {
         return null;
     }
 
+    const Profile = () => {
+        navigation.navigate('Perfil')
+    }
+
+
     return (
         <View style={styles.container}>
             <View style={styles.infoBox}>
                 <Text style={styles.boxTitle}>Pai / Mãe</Text>
-                <Pressable style={styles.btn_login}>
+                <Pressable style={styles.btn_login} onPress={Profile}>
                     <Text style={styles.textBtn}>Meu Perfil</Text>
                 </Pressable>
                 <Pressable style={styles.btn_login}>

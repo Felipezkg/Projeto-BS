@@ -7,7 +7,7 @@ import { useFonts, Comfortaa_400Regular, Comfortaa_300Light } from '@expo-google
 export function CadbabaScreen({ navigation }) {
 
     const cadastroEfetuado = () => {
-        navigation.navigate('Home');
+        navigation.navigate('Inicial');
     };
 
 
