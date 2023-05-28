@@ -1,5 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
-//---------------------------------------------------------------------------------------------------------------------------------------
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 //---------------------------------------------------------------------------------------------------------------------------------------
@@ -23,7 +21,23 @@ try {
   console.log('App em carregamento');
 }
 //---------------------------------------------------------------------------------------------------------------------------------------
+import { useFonts, Comfortaa_400Regular, Comfortaa_300Light } from '@expo-google-fonts/comfortaa';
+import { Rubik_300Light, Rubik_300Light_Italic } from '@expo-google-fonts/rubik'
+//---------------------------------------------------------------------------------------------------------------------------------------
+
 export default function App() {
+
+  const [fonteLoaded] = useFonts({
+    Comfortaa_400Regular,
+    Comfortaa_300Light,
+    Rubik_300Light,
+    Rubik_300Light_Italic,
+  });
+
+  if (!fonteLoaded) {
+    return null;
+  }
+
   return (
     <NavigationContainer>
       <UserProvider>

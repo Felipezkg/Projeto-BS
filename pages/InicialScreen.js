@@ -1,20 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Pressable, Image } from 'react-native';
-
-import { useFonts, Comfortaa_400Regular, Comfortaa_300Light } from '@expo-google-fonts/comfortaa';
-
+//---------------------------------------------------------------------------------------------------------------------------------------
 import babyImg from '../images/Baby-cuate.png';
-
+//---------------------------------------------------------------------------------------------------------------------------------------
 export function InicialScreen({ navigation }) {
-
-    const [fonteLoaded] = useFonts({
-        Comfortaa_400Regular,
-        Comfortaa_300Light,
-    });
-
-    if (!fonteLoaded) {
-        return null;
-    }
 
     const cadastrarPais = () => {
         navigation.navigate('Cadastro de Pais');
@@ -83,7 +72,7 @@ const styles = StyleSheet.create({
 
     textBtn: {
         color: '#fff',
-        fontWeight: 800,
+        fontWeight: 'bold',
     },
 
     btn_cad: {

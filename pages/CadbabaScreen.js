@@ -1,9 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Pressable, Image, TextInput, ScrollView } from 'react-native';
-
+//---------------------------------------------------------------------------------------------------------------------------------------
 import { Ionicons } from '@expo/vector-icons';
-import { useFonts, Comfortaa_400Regular, Comfortaa_300Light } from '@expo-google-fonts/comfortaa';
-
+//---------------------------------------------------------------------------------------------------------------------------------------
 export function CadbabaScreen({ navigation }) {
 
     const cadastroEfetuado = () => {

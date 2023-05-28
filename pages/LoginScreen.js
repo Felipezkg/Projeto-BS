@@ -1,79 +1,70 @@
 import { StatusBar } from 'expo-status-bar';
-
+//---------------------------------------------------------------------------------------------------------------------------------------
 import { Ionicons } from '@expo/vector-icons'
-
+//---------------------------------------------------------------------------------------------------------------------------------------
 import React, { useContext, useState } from 'react';
-
-import UserContext from '../contexts/UserContext';
-
+// import UserContext from '../contexts/UserContext';
+//---------------------------------------------------------------------------------------------------------------------------------------
 import { StyleSheet, Text, View, Pressable, Image, TextInput } from 'react-native';
-
+//---------------------------------------------------------------------------------------------------------------------------------------
 import secImg from '../images/Secure-login.png';
-
-import * as firebase from 'firebase/app';
-import 'firebase/database';
-import 'firebase/auth';
-
+//---------------------------------------------------------------------------------------------------------------------------------------
+// import firebase from 'firebase/app';
+// import 'firebase/database';
+//---------------------------------------------------------------------------------------------------------------------------------------
 
 export function LoginScreen({ navigation }) {
 
-    const { login } = useContext(UserContext); // Acesse o contexto do usuário
+    // const { login } = useContext(UserContext); // Acesse o contexto do usuário
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
 
     const [esconderSenha, setEscondersenha] = useState(true);
 
     const switchState = () => {
-        if (esconderSenha == true) {
-            setEscondersenha(false)
-
-        }
-
-        if (esconderSenha == false) {
-            setEscondersenha(true)
-        }
+        setEscondersenha(!esconderSenha);
     }
 
+    // const handleLogin = () => {
+    //     firebase
+    //         .database()
+    //         .ref('Pais')
+    //         .orderByChild('email')
+    //         .equalTo(String(email)) // Converta para string
+    //         .once('value')
+    //         .then((snapshot) => {
+    //             const userData = snapshot.val();
 
+    //             if (userData) {
+    //                 const userKey = Object.keys(userData)[0];
+    //                 const user = userData[userKey];
+
+    //                 if (user.senha === password) {
+    //                     // Login bem-sucedido
+    //                     console.log('Usuário logado:', user);
+    //                     // Salve as informações do usuário no contexto
+    //                     login(user);
+    //                     // Navegar para a Tela Home do App
+    //                     navigation.navigate('Home');
+    //                 } else {
+    //                     // Senha incorreta
+    //                     console.error('Senha incorreta');
+    //                 }
+    //             } else {
+    //                 // Usuário não encontrado
+    //                 console.error('Usuário não encontrado');
+    //             }
+    //         })
+    //         .catch((error) => {
+    //             // Tratamento de erro
+    //             console.error('Erro ao fazer login:', error);
+    //         });
+    // };
 
     const handleLogin = () => {
-        firebase
-            .database()
-            .ref('Pais')
-            .orderByChild('email')
-            .equalTo(String(email)) // Converta para string
-            .once('value')
-            .then((snapshot) => {
-                const userData = snapshot.val();
-
-                if (userData) {
-                    const userKey = Object.keys(userData)[0];
-                    const user = userData[userKey];
-
-                    if (user.senha === password) {
-                        // Login bem-sucedido
-                        console.log('Usuário logado:', user);
-                        // Salve as informações do usuário no contexto
-                        login(user);
-                        // Navegar para a Tela Home do App
-                        navigation.navigate('Home');
-                    } else {
-                        // Senha incorreta
-                        console.error('Senha incorreta');
-                    }
-                } else {
-                    // Usuário não encontrado
-                    console.error('Usuário não encontrado');
-                }
-            })
-            .catch((error) => {
-                // Tratamento de erro
-                console.error('Erro ao fazer login:', error);
-            });
-
-
-    };
+        navigation.navigate('Home');
+    }
 
 
     return (

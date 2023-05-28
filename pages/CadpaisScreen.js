@@ -1,81 +1,64 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-
+//---------------------------------------------------------------------------------------------------------------------------------------
 import { StyleSheet, Text, View, Pressable, Image, TextInput, ScrollView } from 'react-native';
-
+//---------------------------------------------------------------------------------------------------------------------------------------
 import { Ionicons } from '@expo/vector-icons';
-import { useFonts, Comfortaa_400Regular, Comfortaa_300Light } from '@expo-google-fonts/comfortaa';
-
-import * as firebase from 'firebase/app';
-
-
+//---------------------------------------------------------------------------------------------------------------------------------------
+// import firebase from 'firebase/app';
+// import 'firebase/database';
+//---------------------------------------------------------------------------------------------------------------------------------------
 export function CadpaisScreen({ navigation }) {
 
     const [esconderSenha, setEscondersenha] = useState(true);
 
     const switchState = () => {
-        if (esconderSenha == true) {
-            setEscondersenha(false)
-
-        }
-
-        if (esconderSenha == false) {
-            setEscondersenha(true)
-        }
+        setEscondersenha(!esconderSenha);
     }
 
-    //--------------------------------------------------------------------------------------------------------------------
-    const [profile, setNewprofile] = useState({
-        nome: 'null',
-        telefone: 0,
-        endereco: 'null',
-        dtnascimento: 'null',
-        cpf: 'null',
-        email: 'null',
-        senha: 0,
-        qtdfilhos: 0,
-        foto: 'null',
-    });
+    //---------------------------------------------------------------------------------------------------------------------------------------
+    // const [profile, setNewprofile] = useState({
+    //     nome: 'null',
+    //     telefone: 0,
+    //     endereco: 'null',
+    //     dtnascimento: 'null',
+    //     cpf: 'null',
+    //     email: 'null',
+    //     senha: 0,
+    //     qtdfilhos: 0,
+    //     foto: 'null',
+    // });
+    //---------------------------------------------------------------------------------------------------------------------------------------
 
-    //--------------------------------------------------------------------------------------------------------------------
-
-    // Carregamento de Fontes
-    const [fonteLoaded] = useFonts({
-        Comfortaa_400Regular,
-        Comfortaa_300Light,
-    });
-    // Forçar a Fonte carregada
-    if (!fonteLoaded) {
-        return null;
-    }
-    //--------------------------------------------------------------------------------------------------------------------
+    // const cadastraPai = () => {
+    //     firebase
+    //         .database()
+    //         .ref('Pais/')
+    //         .push(profile)
+    //         .then((data) => {
+    //             const novaChave = data.key; // Obtém a chave gerada pelo push
+    //             const novoProfile = { ...profile, chave: novaChave }; // Adiciona a chave ao objeto profile
+    //             firebase
+    //                 .database()
+    //                 .ref('Pais/' + novaChave)
+    //                 .set(novoProfile) // Salva o objeto com a chave adicionada
+    //                 .then(() => {
+    //                     console.log('Objeto salvo com a chave:', novaChave);
+    //                     window.alert('Cadastrado com Sucesso!')
+    //                 })
+    //                 .catch((error) => {
+    //                     console.log('Erro ao salvar objeto:', error);
+    //                 });
+    //         })
+    //         .catch((error) => {
+    //             console.log('Erro ao salvar mensagem ', error);
+    //         });
+    //     
+    // };
 
     const cadastraPai = () => {
-        firebase
-            .database()
-            .ref('Pais/')
-            .push(profile)
-            .then((data) => {
-                const novaChave = data.key; // Obtém a chave gerada pelo push
-                const novoProfile = { ...profile, chave: novaChave }; // Adiciona a chave ao objeto profile
-                firebase
-                    .database()
-                    .ref('Pais/' + novaChave)
-                    .set(novoProfile) // Salva o objeto com a chave adicionada
-                    .then(() => {
-                        console.log('Objeto salvo com a chave:', novaChave);
-                        window.alert('Cadastrado com Sucesso!')
-                    })
-                    .catch((error) => {
-                        console.log('Erro ao salvar objeto:', error);
-                    });
-            })
-            .catch((error) => {
-                console.log('Erro ao salvar mensagem ', error);
-            });
-
         navigation.navigate('Inicial');
-    };
+    }
 
 
     return (
@@ -221,7 +204,6 @@ export function CadpaisScreen({ navigation }) {
                         <Text style={styles.textBtn}>CADASTRAR</Text>
                     </Pressable>
                 </View>
-
             </View>
         </ScrollView>
     )
